@@ -124,17 +124,6 @@ namespace SafeExamBrowser.Client.Responsibilities
 
 		private void ApplicationMonitor_ExplorerStarted()
 		{
-			Logger.Info("Trying to terminate Windows explorer...");
-			explorerShell.Terminate();
-
-			Logger.Info("Re-initializing working area...");
-			displayMonitor.InitializePrimaryDisplay(Settings.UserInterface.Taskbar.EnableTaskbar ? taskbar.GetAbsoluteHeight() : 0);
-
-			Logger.Info("Re-initializing shell...");
-			actionCenter.InitializeBounds();
-			taskbar.InitializeBounds();
-
-			Logger.Info("Desktop successfully restored.");
 		}
 
 		private void ApplicationMonitor_TerminationFailed(IEnumerable<RunningApplication> applications)
