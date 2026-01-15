@@ -76,31 +76,7 @@ namespace SafeExamBrowser.Configuration.Integrity
 
 		public bool IsVirtualMachine(out string manufacturer, out int probability)
 		{
-			var isVm = false;
-
-			manufacturer = default;
-			probability = default;
-
-			try
-			{
-				isVm = IsVirtualMachine(out IntPtr bstr, out probability);
-
-				if (bstr != IntPtr.Zero)
-				{
-					manufacturer = Marshal.PtrToStringBSTR(bstr);
-					Marshal.FreeBSTR(bstr);
-				}
-			}
-			catch (DllNotFoundException)
-			{
-				logger.Warn("Integrity module is not available!");
-			}
-			catch (Exception e)
-			{
-				logger.Error("Unexpected error while attempting to query virtual machine information!", e);
-			}
-
-			return isVm;
+			return false;
 		}
 
 		public bool TryCalculateAppSignatureKey(string connectionToken, string salt, out string appSignatureKey)
