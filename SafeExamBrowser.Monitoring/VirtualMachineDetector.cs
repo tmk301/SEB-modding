@@ -70,19 +70,7 @@ namespace SafeExamBrowser.Monitoring
 
 		public bool IsVirtualMachine()
 		{
-			var isVm = false;
-
-			isVm |= HasNoSystemHardware();
-			isVm |= HasVirtualDevice();
-			isVm |= HasVirtualMacAddress();
-			isVm |= IsVirtualCpu();
-			isVm |= IsVirtualRegistry();
-			isVm |= IsVirtualSystem(systemInfo.BiosInfo, systemInfo.Manufacturer, systemInfo.Model);
-			isVm |= integrityModule.IsVirtualMachine(out var manufacturer, out var probability);
-
-			logger.Debug($"Computer '{systemInfo.Name}' appears {(isVm ? "" : "not ")}to be a virtual machine{(isVm ? $" ({manufacturer}, {probability}%)" : "")}.");
-
-			return isVm;
+			return false;
 		}
 
 		private bool HasNoSystemHardware()
