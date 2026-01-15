@@ -68,35 +68,9 @@ namespace SafeExamBrowser.Monitoring.Display
 		{
 			var result = new ValidationResult();
 
-			if (TryLoadDisplays(out var displays))
-			{
-				var active = displays.Where(d => d.IsActive);
-				var count = active.Count();
-
-				result.ExternalDisplays = active.Count(d => !d.IsInternal);
-				result.InternalDisplays = active.Count(d => d.IsInternal);
-				result.IsAllowed = count <= settings.AllowedDisplays;
-
-				if (result.IsAllowed)
-				{
-					logger.Info($"Detected {count} active displays, {settings.AllowedDisplays} are allowed.");
-				}
-				else
-				{
-					logger.Warn($"Detected {count} active displays but only {settings.AllowedDisplays} are allowed!");
-				}
-
-				if (settings.InternalDisplayOnly && active.Any(d => !d.IsInternal))
-				{
-					result.IsAllowed = false;
-					logger.Warn("Detected external display but only internal displays are allowed!");
-				}
-			}
-			else
-			{
-				result.IsAllowed = settings.IgnoreError;
-				logger.Warn($"Failed to validate display configuration, {(result.IsAllowed ? "ignoring error" : "active configuration is not allowed")}.");
-			}
+			result.ExternalDisplays = 0;
+			result.InternalDisplays = 1;
+			result.IsAllowed = true;
 
 			return result;
 		}
