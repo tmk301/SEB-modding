@@ -102,6 +102,7 @@
     <Compile Include="Filters\Rules\RegexRule.cs" />
     <Compile Include="Filters\RuleFactory.cs" />
     <Compile Include="Filters\Rules\SimplifiedRule.cs" />
+    <Compile Include="Filters\JavascriptInjectionFilter.cs" />
     <Compile Include="Handlers\ContextMenuHandler.cs" />
     <Compile Include="BrowserControl.cs" />
     <Compile Include="BrowserIconResource.cs" />
