@@ -123,10 +123,10 @@ namespace SafeExamBrowser.Runtime.Responsibilities
 			runtimeWindow.TopMost = Session.Settings.Security.KioskMode != KioskMode.None;
 			runtimeWindow.UpdateStatus(TextKey.RuntimeWindow_ApplicationRunning);
 
-			if (Session.Settings.Security.KioskMode == KioskMode.DisableExplorerShell)
-			{
+			//if (Session.Settings.Security.KioskMode == KioskMode.DisableExplorerShell)
+			//{
 				runtimeWindow.Hide();
-			}
+			//}
 		}
 
 		private void HandleSessionStartFailure()
@@ -159,10 +159,10 @@ namespace SafeExamBrowser.Runtime.Responsibilities
 				runtimeWindow.UpdateStatus(TextKey.RuntimeWindow_ApplicationRunning);
 				runtimeWindow.TopMost = Session.Settings.Security.KioskMode != KioskMode.None;
 
-				if (Session.Settings.Security.KioskMode == KioskMode.DisableExplorerShell)
-				{
+				//if (Session.Settings.Security.KioskMode == KioskMode.DisableExplorerShell)
+				//{
 					runtimeWindow.Hide();
-				}
+				//}
 
 				Context.ClientProxy.InformReconfigurationAborted();
 			}
