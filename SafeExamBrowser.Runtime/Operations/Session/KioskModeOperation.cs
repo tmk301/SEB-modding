@@ -122,7 +122,7 @@ namespace SafeExamBrowser.Runtime.Operations.Session
 			originalDesktop = desktopFactory.GetCurrent();
 			Logger.Info($"Current desktop is {originalDesktop}.");
 
-			customDesktop = desktopFactory.CreateRandom();
+			customDesktop = originalDesktop;
 			Logger.Info($"Created custom desktop {customDesktop}.");
 
 			customDesktop.Activate();
@@ -149,7 +149,6 @@ namespace SafeExamBrowser.Runtime.Operations.Session
 
 			if (customDesktop != default)
 			{
-				customDesktop.Close();
 				Logger.Info($"Closed custom desktop {customDesktop}.");
 			}
 			else
@@ -160,18 +159,18 @@ namespace SafeExamBrowser.Runtime.Operations.Session
 
 		private void TerminateExplorerShell()
 		{
-			StatusChanged?.Invoke(TextKey.OperationStatus_WaitExplorerTermination);
+			//StatusChanged?.Invoke(TextKey.OperationStatus_WaitExplorerTermination);
 
-			explorerShell.HideAllWindows();
-			explorerShell.Terminate();
+			//explorerShell.HideAllWindows();
+			//explorerShell.Terminate();
 		}
 
 		private void RestartExplorerShell()
 		{
-			StatusChanged?.Invoke(TextKey.OperationStatus_WaitExplorerStartup);
+			//StatusChanged?.Invoke(TextKey.OperationStatus_WaitExplorerStartup);
 
-			explorerShell.Start();
-			explorerShell.RestoreAllWindows();
+			//explorerShell.Start();
+			//explorerShell.RestoreAllWindows();
 		}
 	}
 }
