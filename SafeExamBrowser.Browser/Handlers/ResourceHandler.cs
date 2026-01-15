@@ -305,16 +305,5 @@ namespace SafeExamBrowser.Browser.Handlers
 				}
 			}
 		}
-
-		protected override IResponseFilter GetResourceResponseFilter(IWebBrowser webBrowser, IBrowser browser, IFrame frame, IRequest request, IResponse response)
-		{
-			if (frame.IsMain && request.ResourceType == ResourceType.MainFrame)
-			{
-				return new JavascriptInjectionFilter(InjectableScript);
-			}
-
-			return null;
-		}
-
 	}
 }

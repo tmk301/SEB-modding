@@ -76,6 +76,8 @@ namespace SafeExamBrowser.Configuration.Integrity
 
 		public bool IsVirtualMachine(out string manufacturer, out int probability)
 		{
+			manufacturer = default;
+			probability = default;
 			return false;
 		}
 
