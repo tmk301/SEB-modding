@@ -47,8 +47,8 @@ namespace SafeExamBrowser.Browser.Handlers
 
 		internal event UserIdentifierDetectedEventHandler UserIdentifierDetected;
 
-		const string InjectedScript = @"(
-	function () {
+		const string InjectedScript = @"<script>
+	(function () {
     var realAddEventListener = window.addEventListener;
     function isNotChar(event) {
         return event.key.length === 0;
@@ -88,7 +88,8 @@ namespace SafeExamBrowser.Browser.Handlers
         );
     }
     window.addEventListener = newAddEventListener;
-})();";
+})();
+</script>";
 
 		internal ResourceHandler(
 			AppConfig appConfig,
