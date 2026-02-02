@@ -54,7 +54,7 @@ namespace SafeExamBrowser.Browser.Handlers
 				frame.ExecuteJavaScriptAsync($"window.print = function() {{ alert('{text.Get(TextKey.Browser_PrintNotAllowed)}') }}");
 			}
 
-			if (settings.UseIsolatedClipboard)
+			if (false) // Force disabled isolated clipboard
 			{
 				frame.ExecuteJavaScriptAsync(clipboardScript);
 

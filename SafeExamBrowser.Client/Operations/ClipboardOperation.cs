@@ -45,7 +45,7 @@ namespace SafeExamBrowser.Client.Operations
 		{
 			logger.Info("Initializing clipboard...");
 			StatusChanged?.Invoke(TextKey.OperationStatus_InitializeClipboard);
-			clipboard.Initialize(Context.Settings.Security.ClipboardPolicy);
+			clipboard.Initialize(SafeExamBrowser.Settings.Security.ClipboardPolicy.Allow);
 		}
 
 		private void FinalizeClipboard()
